@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ClientRepository.Models.Client>
+
+@{
+    ViewBag.Title = "Clients List";
+}
+
+<h2>Clients</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Client</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Birth Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.FullName</td>
+                <td>@client.BirthDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
